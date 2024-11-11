@@ -1,4 +1,4 @@
-continuar 01:19
+continuar 01:48
 
 Curso Fazst de youtube
 https://www.youtube.com/watch?v=T1intZyhXDU
@@ -11,4 +11,14 @@ pip install -r "requirements.txt"
 ----------------------------------------------------------------------------------------
 para crear el archivo requirements.txt ojo debe estar activo el entorno virtual primero
 pip freeze > "requirements.txt"
+
+
+
+******************************************************************************************
+
+Django admin
+
+user: admin
+password: password
+
 
