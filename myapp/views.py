@@ -1,17 +1,23 @@
 #from django.shortcuts import render
 # IMPORTANDO JSON PARA ENVIAR DATOS EN FORMATO JSON
-from django.http import HttpResponse, JsonResponse 
+from django.http import HttpResponse, JsonResponse
 
 #IMPORTANDO LOS MODELOS
 from .models import Project, Task
 
 #Error 404
-from django.shortcuts import get_object_or_404
+#from django.shortcuts import get_object_or_404
+
+#Importando render para renderizar las vistas del html
+from django.shortcuts import render
 
 # Create your views here.
 
 def index(request):
-    return HttpResponse("Index page")
+    title = 'Welcome to Django Course!!'
+    return render(request, 'index.html', {
+        'title': title
+    })    
 
 """
 def hello(request, id): # or username parametro
@@ -23,12 +29,13 @@ def hello(request, username): # or username parametro
 
 
 def about(request):
-    return HttpResponse('About')
+    username = 'fazt'
+    return render(request, 'about.html',{
+        'username': username
+    })
 
 
-def projects(request):
-    projects = list(Project.objects.values())
-    return JsonResponse(projects, safe=False)
+
 
 """
 def tasks(request, id):
@@ -37,9 +44,16 @@ def tasks(request, id):
     return HttpResponse(f'tasks: {task.title}')
 """
 
-def tasks(request, name):
-    task = Task.objects.get(title=name)
-    return HttpResponse(f'tasks: {task.title}')
+def projects(request):
+    #projects = list(Project.objects.values())
+    projects = Project.objects.all()
+    return render(request, 'projects.html', {
+        'projects': projects
+    })
+
+def tasks(request):
+    #task = Task.objects.get(title=title)
+    return render(request, 'tasks.html') 
 
 
 

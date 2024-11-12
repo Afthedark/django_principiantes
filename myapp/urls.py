@@ -10,7 +10,9 @@ urlpatterns = [
     #path('hello/<int:id>', views.hello), #Variable username es int y se pasa como argumento
     path('projects/', views.projects),
     #path('tasks/<int:id>', views.tasks),
-    path('tasks/<str:name>', views.tasks),
+    path('tasks/', views.tasks),
 ] 
+
+
 
 
